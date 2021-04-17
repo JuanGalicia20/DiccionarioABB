@@ -31,9 +31,6 @@ public class App {
         ArrayList<String> palabras = new ArrayList<>();
         Comparar comparar = new Comparar<String, Palabra>();
         Key key = new Key<String, Palabra>();
-        ABB arbolEn = new ABB<String, Palabra>(comparar, key);
-        ABB arbolEs = new ABB<String, Palabra>(comparar, key);
-        ABB arbolFr = new ABB<String, Palabra>(comparar, key);
         String op = "";
         while (!op.equals("2")) {
             System.out.println("Bienvenido al diccionario de 3 idiomas\nSeleccione una opcion\n"
@@ -41,6 +38,9 @@ public class App {
             op = leer.next();
 
             if (op.equals("1")) {
+            	ABB arbolEn = new ABB<String, Palabra>(comparar, key);
+                ABB arbolEs = new ABB<String, Palabra>(comparar, key);
+                ABB arbolFr = new ABB<String, Palabra>(comparar, key);
                 readFile(arbolEn, arbolEs, arbolFr);
                 Visitar visitar = new Visitar<String, Palabra>();
                 arbolEn.InOrder(visitar, arbolEn._raiz);
